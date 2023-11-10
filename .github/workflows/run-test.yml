@@ -6,7 +6,7 @@ on:
 
 jobs:
   # Label of the container job
-  install_nest:
+  tests:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     defaults:
@@ -54,11 +54,6 @@ jobs:
         with:
           go-version: "1.21.0"
 
-      - run: |
-          cd test    
-          go mod download
-          go test -v
-
       - name: Run the server
         run: |
           pnpm run start &
@@ -70,3 +65,9 @@ jobs:
           HEALTH_PORT: 3003
           AUTH_API_URL: "localhost:4002"
           PORT: 5004
+
+      - name: "Run tests"
+        run: |
+          cd test    
+          go mod download
+          go test -v
