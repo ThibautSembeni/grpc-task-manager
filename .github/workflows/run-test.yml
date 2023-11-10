@@ -18,7 +18,7 @@ jobs:
         image: mongo
         ports:
           - 27017:27017
-        options: --health-cmd "mongo --version" --health-interval 10s --health-timeout 5s --health-retries 3
+        # options: --health-cmd "mongo --version" --health-interval 10s --health-timeout 5s --health-retries 3
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: task
